@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "424296049588",
+    "firebase_url": "https://ue-cafe-27971.firebaseio.com",
+    "project_id": "ue-cafe-27971",
+    "storage_bucket": "ue-cafe-27971.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424296049588:android:82fed9f78821053a7fa0e1",
+        "android_client_info": {
+          "package_name": "com.uecafe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "424296049588-r1bvjfq416dhitja8ruje9i4d33lq8gl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uecafe",
+            "certificate_hash": "74c9416de7c72468db87cd0c9762fb9f2258bf37"
+          }
+        },
+        {
+          "client_id": "424296049588-9gq1765s002ko2ea2dmm764noe1n2ja2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVqPgqWOjMWmZjE_CxQ9692FIi7KhLE6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424296049588-9gq1765s002ko2ea2dmm764noe1n2ja2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
