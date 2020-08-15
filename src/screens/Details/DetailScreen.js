@@ -1,23 +1,25 @@
 import React from 'react';
 import {
-  FlatList,
   ScrollView,
   Text,
   View,
-  TouchableOpacity,
   Image,
   Dimensions,
-  TouchableHighlight
+  TouchableHighlight,
 } from 'react-native';
 import styles from './styles';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { getIngredientName, getCategoryName, getCategoryById } from '../../data/MockDataAPI';
 import BackButton from '../../components/BackButton/BackButton';
 import ViewIngredientsButton from '../../components/ViewIngredientsButton/ViewIngredientsButton';
-
+import { connect } from 'react-redux';
+import { MaterialIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import { withNavigation } from 'react-navigation';
+import Plus from '../../components/PlusButton/Plus';
 const { width: viewportWidth } = Dimensions.get('window');
 
-export default class RecipeScreen extends React.Component {
+class DetailScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerTransparent: 'true',
@@ -96,15 +98,35 @@ export default class RecipeScreen extends React.Component {
           <Text style={styles.infoRecipeName}>{item.title}</Text>
           <View style={styles.infoContainer}>
             <TouchableHighlight
-              onPress={() => navigation.navigate('RecipesList', { category, title })}
-            >
+              onPress={() => navigation.navigate('ProductList', { category, title })} >
               <Text style={styles.category}>{getCategoryName(item.categoryId).toUpperCase()}</Text>
             </TouchableHighlight>
           </View>
 
           <View style={styles.infoContainer}>
-            <Image style={styles.infoPhoto} source={require('../../../assets/icons/time.png')} />
-            <Text style={styles.infoRecipe}>{item.time} minutes </Text>
+            <Image style={styles.infoPhoto} source={require('../../../assets/icons/time.jpg')} />
+            <Text style={styles.infoRecipe}>Time to deliver: {item.time} minutes </Text>
+          </View>
+          <View style={styles.infoContainer}>
+            <Image style={styles.infoPhoto} source={require('../../../assets/icons/price.jpg')} />
+            <Text style={styles.infoRecipe}>Price {item.price} PKR </Text>
+          </View>
+          <View style={styles.infoContainer1}>
+           <Plus/>
+          <Text style={{borderWidth:1, borderColor:'black'}}> 
+            <Image style={styles.infoPhoto}  source={require('../../../assets/icons/quantity.png')} />
+            <Text  style={{marginBottom:10, marginTop:10, fontSize:18,}}> Quantity= {this.props.cartItems.length} 
+          </Text>
+          </Text>
+          <Text style={{ borderWidth:1, borderColor:'black',}}>
+          <AntDesign name="minus" size={24} color="black"
+          onPress={()=>{this.props.cartItems.length-1 }}
+          />
+            </Text>
+          </View>
+          <View style={styles.infoContainer}>
+            <Image style={styles.infoPhoto} source={require('../../../assets/icons/bill.png')} />
+            <Text style={styles.infoRecipe}>Total Bill {item.price*this.props.cartItems.length} PKR</Text>
           </View>
 
           <View style={styles.infoContainer}>
@@ -117,18 +139,20 @@ export default class RecipeScreen extends React.Component {
             />
           </View>
           <View style={styles.infoContainer}>
-            <Text style={styles.infoDescriptionRecipe}>{item.description}</Text>
-          </View>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('Basket')}>
+            <View  style={styles.CartButton}>
+            <Text style={styles.text}> Place An Order </Text>
+            </View>
+           </TouchableHighlight>
+           </View>
         </View>
       </ScrollView>
     );
   }
 }
-
-/*cooking steps
-<View style={styles.infoContainer}>
-  <Image style={styles.infoPhoto} source={require('../../../assets/icons/info.png')} />
-  <Text style={styles.infoRecipe}>Cooking Steps</Text>
-</View>
-<Text style={styles.infoDescriptionRecipe}>{item.description}</Text>
-*/
+const mapStateToProps = (state) => {
+  return {
+      cartItems: state
+  }
+}
+export default  connect(mapStateToProps)(withNavigation(DetailScreen));

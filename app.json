@@ -5,7 +5,7 @@
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
-      "ios"
+      "ios",
       "android",
       "web"
     ],
@@ -21,7 +21,6 @@
     },
     "facebookAppId": "749884709129361",
     "facebookDisplayName": "UE Cafe",
-  
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -31,10 +30,10 @@
     "ios": {
       "supportsTablet": true
     },
-
     "android": {
       "package": "com.uecafe",
       "googleServicesFile": "./google-services.json"
-    }
+    },
+    "description": ""
   }
 }

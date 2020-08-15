@@ -9,7 +9,7 @@ import {
 import styles from './styles';
 import { getRecipes, getCategoryName } from '../../data/MockDataAPI';
 
-export default class RecipesListScreen extends React.Component {
+export default class ProductListScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: navigation.getParam('title')
@@ -21,7 +21,7 @@ export default class RecipesListScreen extends React.Component {
   }
 
   onPressRecipe = item => {
-    this.props.navigation.navigate('Recipe', { item });
+    this.props.navigation.navigate('Details', { item });
   };
 
   renderRecipes = ({ item }) => (
@@ -43,7 +43,7 @@ export default class RecipesListScreen extends React.Component {
         <FlatList
           vertical
           showsVerticalScrollIndicator={false}
-          numColumns={2}
+          numColumns={1}
           data={recipesArray}
           renderItem={this.renderRecipes}
           keyExtractor={item => `${item.recipeId}`}

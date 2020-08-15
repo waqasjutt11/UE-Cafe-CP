@@ -33,7 +33,7 @@ export default class SearchScreen extends React.Component {
             backgroundColor: 'transparent',
             borderBottomColor: 'transparent',
             borderTopColor: 'transparent',
-            flex: 1
+            flex: 1,
           }}
           inputContainerStyle={{
             backgroundColor: '#EDEDED'
@@ -96,7 +96,7 @@ export default class SearchScreen extends React.Component {
   };
 
   onPressRecipe = item => {
-    this.props.navigation.navigate('Recipe', { item });
+    this.props.navigation.navigate('Details', { item });
   };
 
   renderRecipes = ({ item }) => (
@@ -115,7 +115,7 @@ export default class SearchScreen extends React.Component {
         <FlatList
           vertical
           showsVerticalScrollIndicator={false}
-          numColumns={2}
+          numColumns={1}
           data={this.state.data}
           renderItem={this.renderRecipes}
           keyExtractor={item => `${item.recipeId}`}

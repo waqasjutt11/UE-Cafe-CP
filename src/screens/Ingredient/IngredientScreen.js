@@ -26,7 +26,7 @@ export default class IngredientScreen extends React.Component {
   }
 
   onPressRecipe = item => {
-    this.props.navigation.navigate('Recipe', { item });
+    this.props.navigation.navigate('Details', { item });
   };
 
   renderRecipes = ({ item }) => (
@@ -51,12 +51,12 @@ export default class IngredientScreen extends React.Component {
         <View style={{ borderBottomWidth: 0.4, marginBottom: 10, borderBottomColor: 'grey' }}>
           <Image style={styles.photoIngredient} source={{ uri: '' + ingredientUrl }} />
         </View>
-        <Text style={styles.ingredientInfo}>Recipes with {ingredientName}:</Text>
+        <Text style={styles.ingredientInfo}>More Products with {ingredientName}:</Text>
         <View>
           <FlatList
             vertical
             showsVerticalScrollIndicator={false}
-            numColumns={2}
+            numColumns={1}
             data={getRecipesByIngredient(ingredientId)}
             renderItem={this.renderRecipes}
             keyExtractor={item => `${item.recipeId}`}

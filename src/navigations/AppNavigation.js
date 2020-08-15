@@ -6,12 +6,16 @@ import SignInScreen from '../screens/Signin/SigninScreen'
 import SignupScreen from '../screens/Signup/SignupScreen'
 import HomeScreen from '../screens/Home/HomeScreen';
 import CategoriesScreen from '../screens/Categories/CategoriesScreen';
-import RecipeScreen from '../screens/Recipe/RecipeScreen';
-import RecipesListScreen from '../screens/RecipesList/RecipesListScreen';
+import DetailScreen from '../screens/Details/DetailScreen'
+import ProductListScreen from '../screens/ProductList/ProductListScreen';
 import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
 import IngredientScreen from '../screens/Ingredient/IngredientScreen';
 import SearchScreen from '../screens/Search/SearchScreen';
 import IngredientsDetailsScreen from '../screens/IngredientsDetails/IngredientsDetailsScreen';
+import CartScreen from './../screens/Basket/CartScreen';
+
+import CheckoutScreen from '../screens/Checkout/CheckoutScreen'
+
 const MainNavigator = createStackNavigator(
   {
     Loading: LoadingScreen,
@@ -19,11 +23,14 @@ const MainNavigator = createStackNavigator(
     Signup: SignupScreen,
     Home: HomeScreen,
     Categories: CategoriesScreen,
-    Recipe: RecipeScreen,
-    RecipesList: RecipesListScreen,
+    Details: DetailScreen,
+    ProductList: ProductListScreen,
     Ingredient: IngredientScreen,
     Search: SearchScreen,
-    IngredientsDetails: IngredientsDetailsScreen
+    IngredientsDetails: IngredientsDetailsScreen,
+    Checkout: CheckoutScreen,
+    Basket: CartScreen,
+   
   },
   {
     initialRouteName: 'Loading',
@@ -45,11 +52,11 @@ const DrawerStack = createDrawerNavigator(
   {
     drawerPosition: 'left',
     initialRouteName: 'Main',
-    drawerWidth: 250,
+    drawerWidth: 225,
     contentComponent: DrawerContainer
   }
 );
  
-export default AppContainer = createAppContainer(DrawerStack);
+export default AppContainer = createAppContainer(DrawerStack)
 
 console.disableYellowBox = true;

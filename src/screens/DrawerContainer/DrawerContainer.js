@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import MenuButton from '../../components/MenuButton/MenuButton';
+import firebase from 'firebase';
 
 export default class DrawerContainer extends React.Component {
   render() {
@@ -27,12 +28,32 @@ export default class DrawerContainer extends React.Component {
             }}
           />
           <MenuButton
-            title="SEARCH"
+            title="EXPLORE"
             source={require('../../../assets/icons/search.png')}
             onPress={() => {
               navigation.navigate('Search');
               navigation.closeDrawer();
             }}
+            />
+            <MenuButton
+            title="My Cart"
+            source={require('../../../assets/icons/cart.png')}
+            onPress={() => {
+              navigation.navigate('Basket');
+              navigation.closeDrawer();
+            }}
+
+            />
+            <MenuButton
+            title=" LOGOUT"
+            source={require('../../../assets/icons/logout.png')}
+            onPress={() => firebase.auth().signOut()
+            }
+            
+          />
+           <MenuButton
+            title="PROFILE"
+            source={require('../../../assets/icons/profil.png')}
           />
         </View>
       </View>

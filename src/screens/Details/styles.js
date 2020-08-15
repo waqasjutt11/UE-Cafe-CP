@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { Icon } from 'react-native-vector-icons/Ionicons';
 
 const { width: viewportWidth } = Dimensions.get('window');
 
@@ -49,6 +50,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
+  infoContainer1: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    marginTop:10,
+    marginBottom:10
+  },
   buttonContainer: {
     flex: 1,
     flexDirection: 'row',
@@ -83,7 +92,27 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     textAlign: 'center'
-  }
+  },
+  CartButton:{
+      flex: 1,
+      height: 50,
+      width: 270,
+      marginTop: 20,
+      marginLeft: 10,
+      marginRight: 10,
+      borderRadius: 100,
+      borderColor: '#2cd18a',
+      borderWidth: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    text: {
+      fontSize: 14,
+      color: '#2cd18a'
+    },
+    icon:{
+      marginLeft: 5
+    }
 });
 
 export default styles;

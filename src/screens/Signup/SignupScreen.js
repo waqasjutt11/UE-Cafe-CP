@@ -37,13 +37,13 @@ class SignupScreen extends React.Component {
   async signInWithFacebook() {
     try {
       const { type, token } = await Facebook.logInWithReadPermissionsAsync('749884709129361', {
-        permissions: ['public_profile'],
+        permissions: ['email', 'public_profile', 'user_friends']
       });
-      if (type === 'success') {
+      if (type === 'success')
+       {
         await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
         const credential = firebase.auth.FacebookAuthProvider.credential(token);
         const facebookProfileData = await firebase.auth().signInWithCredential(credential);
-        this.onLoginSuccess.bind(this);
       }
     } catch ({ message }) {
       alert(`Facebook Login Error: ${message}`);
@@ -57,7 +57,8 @@ class SignupScreen extends React.Component {
         await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
         const credential = firebase.auth.GoogleAuthProvider.credential(user.auth.idToken, user.auth.accessToken,);
         const googleProfileData = await firebase.auth().signInWithCredential(credential);
-        this.onLoginSuccess.bind(this);
+        this.onLoginSuccess.bind
+
       }
     } catch ({ message }) {
       alert('login: Error:' + message);
