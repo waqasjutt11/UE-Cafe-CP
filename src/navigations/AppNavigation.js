@@ -28,7 +28,6 @@ const MainNavigator = createStackNavigator(
     Ingredient: IngredientScreen,
     Search: SearchScreen,
     IngredientsDetails: IngredientsDetailsScreen,
-    Checkout: CheckoutScreen,
     Basket: CartScreen,
    
   },

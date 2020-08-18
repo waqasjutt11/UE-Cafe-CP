@@ -41,6 +41,21 @@ infoContainer: {
       marginLeft:130,
       marginBottom:25
     },
+    input: {
+      height: 48,
+      borderRadius: 5,
+      overflow: 'hidden',
+      backgroundColor: 'white',
+      marginTop: 10,
+      marginBottom: 10,
+      marginLeft: 20,
+      marginRight: 20,
+      paddingLeft: 10, 
+      height: 50,
+      borderColor: 'gray',
+      borderWidth: 1,
+      width: 323
+    },
     checkoutView:{
       alignContent: 'center',
       alignItems:'center',

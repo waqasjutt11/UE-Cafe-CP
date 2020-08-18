@@ -120,7 +120,7 @@ class DetailScreen extends React.Component {
           </Text>
           <Text style={{ borderWidth:1, borderColor:'black',}}>
           <AntDesign name="minus" size={24} color="black"
-          onPress={()=>{this.props.cartItems.length-1 }}
+          onPress={()=>{this.props.cartItems.length-1}}
           />
             </Text>
           </View>
