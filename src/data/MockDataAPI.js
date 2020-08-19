@@ -11,7 +11,15 @@ export function getCategoryById(categoryId) {
   });
   return category;
 }
-
+export function getCategoryByIdd(categoryId) {
+  let category;
+  categories.map(data => {
+    if (data.id == categoryId) {
+      category = data;
+    }
+  });
+  return category;
+}
 export function getIngredientName(ingredientID) {
   let name;
   ingredients.map(data => {

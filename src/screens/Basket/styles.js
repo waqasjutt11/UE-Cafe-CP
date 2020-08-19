@@ -34,10 +34,11 @@ infoContainer: {
       color:'#8A173F',
       fontSize:16,
       marginLeft: 65,
-      marginBottom:30
+      marginBottom:30,
+      
     },
     iconalert:{
-      marginTop:-125,
+      marginTop:150,
       marginLeft:130,
       marginBottom:25
     },
@@ -48,13 +49,12 @@ infoContainer: {
       backgroundColor: 'white',
       marginTop: 10,
       marginBottom: 10,
-      marginLeft: 20,
-      marginRight: 20,
+      marginLeft:10,
       paddingLeft: 10, 
       height: 50,
       borderColor: 'gray',
       borderWidth: 1,
-      width: 323
+      width: 'auto'
     },
     checkoutView:{
       alignContent: 'center',

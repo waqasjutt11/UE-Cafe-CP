@@ -36,7 +36,7 @@ export default class DrawerContainer extends React.Component {
             }}
             />
             <MenuButton
-            title="My Cart"
+            title="MY CART"
             source={require('../../../assets/icons/cart.png')}
             onPress={() => {
               navigation.navigate('Basket');
