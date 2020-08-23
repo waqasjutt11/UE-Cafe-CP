@@ -22,7 +22,7 @@ export default class CategoriesScreen extends React.Component {
   onPressCategory = item => {
     const title = item.name;
     const category = item;
-    this.props.navigation.navigate('RecipesList', { category, title });
+    this.props.navigation.navigate('ProductList', { category, title });
   };
 
   renderCategory = ({ item }) => (

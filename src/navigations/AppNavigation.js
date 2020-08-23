@@ -13,7 +13,7 @@ import IngredientScreen from "../screens/Ingredient/IngredientScreen";
 import SearchScreen from "../screens/Search/SearchScreen";
 import IngredientsDetailsScreen from "../screens/IngredientsDetails/IngredientsDetailsScreen";
 import CartScreen from "./../screens/Basket/CartScreen";
-
+import ProfileScreen from './../screens/Profile/ProfileScreen';
 const MainNavigator = createStackNavigator(
   {
     Loading: LoadingScreen,
@@ -26,6 +26,7 @@ const MainNavigator = createStackNavigator(
     Ingredient: IngredientScreen,
     Search: SearchScreen,
     IngredientsDetails: IngredientsDetailsScreen,
+    Profile: ProfileScreen,
     Basket: CartScreen,
   },
   {

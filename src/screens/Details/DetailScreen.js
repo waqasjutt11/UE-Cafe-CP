@@ -17,10 +17,9 @@ import {
 import BackButton from "../../components/BackButton/BackButton";
 import ViewIngredientsButton from "../../components/ViewIngredientsButton/ViewIngredientsButton";
 import { connect } from "react-redux";
-import { MaterialIcons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
 import { withNavigation } from "react-navigation";
 import Plus from "../../components/PlusButton/Plus";
+import Remove from './../../components/RemoveButton/Remove';
 const { width: viewportWidth } = Dimensions.get("window");
 
 class DetailScreen extends React.Component {
@@ -138,20 +137,10 @@ class DetailScreen extends React.Component {
                 source={require("../../../assets/icons/quantity.png")}
               />
               <Text style={{ marginBottom: 10, marginTop: 10, fontSize: 18 }}>
-                {" "}
                 Quantity= {this.props.cartItems.length}
               </Text>
             </Text>
-            <Text style={{ borderWidth: 1, borderColor: "black" }}>
-              <AntDesign
-                name="minus"
-                size={24}
-                color="black"
-                onPress={() => {
-                  this.props.cartItems.length - 1;
-                }}
-              />
-            </Text>
+            <Remove />
           </View>
           <View style={styles.infoContainer}>
             <Image

@@ -54,7 +54,8 @@ infoContainer: {
       height: 50,
       borderColor: 'gray',
       borderWidth: 1,
-      width: 'auto'
+      width:335
+      
     },
     checkoutView:{
       alignContent: 'center',

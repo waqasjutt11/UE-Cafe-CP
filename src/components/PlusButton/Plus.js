@@ -3,14 +3,18 @@ import {Text, View} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';   
 import { connect } from 'react-redux';
 import {recipes} from '../../data/dataArrays'
+import { TouchableHighlight } from 'react-native-gesture-handler';
 class Plus extends React.Component{
     render(){
         return(
+          <TouchableHighlight 
+          onPress={()=>(this.props.addItemToCart({recipes}))}>
             <Text style={{ borderWidth:1, borderColor:'black'}}>
-            <MaterialIcons name="add" size={24} color="black" 
-           onPress={()=>(this.props.addItemToCart({recipes}))}
+            <MaterialIcons name="add" size={24} color="#2cd18a" 
+           
             />
-              </Text>
+              </Text> 
+              </TouchableHighlight>
         )
     }
 }

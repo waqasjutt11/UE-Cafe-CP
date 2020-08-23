@@ -7,7 +7,7 @@ import {
   TextInput,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
-  Alert
+  Alert, Keyboard
 } from "react-native";
 import FoodCart from "./../../components/FoodCart/FoodCart";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -18,10 +18,10 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { connect } from "react-redux";
 import { Dropdown } from "react-native-material-dropdown";
 import BackButton from "./../../components/BackButton/BackButton";
+import { getAllIngredients } from './../../data/MockDataAPI';
 class CartScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     headerRight: <FoodCart />,
-
     headerTransparent: "true",
     headerLeft: () => (
       <BackButton
@@ -31,12 +31,83 @@ class CartScreen extends React.Component {
       />
     ),
   });
+  constructor(props) {
+    super(props);
+    this.state = {
+      TextInputAdress: '',
+      TextInputNumber: '',
+    };
+  }
+  CheckTextInput = () => {
+    if (this.state.TextInputAdress != '') {
+      if (this.state.TextInputNumber != '') {
+     } else {
+        alert('Please Enter Valid Phone Number');
+      }
+    } else {
+      alert('Please Enter Valid Adress');
+    }
+  };
   render() {
     let data = [
       {
         value: "Cash on Delivery",
       },
     ];
+    let phoneData = [
+        {value:"0300"}, 
+        {value:"0301"}, 
+        {value:"0302"}, 
+        {value:'0303'},
+        {value:'0304'},
+        {value:'0305'},
+        {value:'0306'},
+        {value:'0307'},
+        {value:'0308'},
+        {value:'0309'},
+        {value:"0310"}, 
+        {value:"0311"}, 
+        {value:"0312"}, 
+        {value:"0313"}, 
+        {value:'0314'},
+        {value:'0315'},
+        {value:'0316'},
+        {value:'0317'},         
+        {value:'0318'},
+        {value:'0319'}, 
+        {value:"0320"}, 
+        {value:"0321"}, 
+        {value:"0322"}, 
+        {value:"0323"},
+        {value:'0324'},
+        {value:'0325'},
+        {value:'0326'},
+        {value:'0327'},
+        {value:'0328'},
+        {value:'0329'}, 
+        {value:"0330"}, 
+        {value:"0331"}, 
+        {value:"0332"}, 
+        {value:"0333"},
+        {value:'0334'},
+        {value:'0335'},
+        {value:'0336'},
+        {value:'0337'},
+        {value:'0338'},
+        {value:'0339'},
+        {value:"0340"}, 
+        {value:"0341"}, 
+        {value:"0342"}, 
+        {value:"0343"}, 
+        {value:'0344'},
+        {value:'0345'},
+        {value:'0346'},
+        {value:'0347'},
+        {value:'0348'},
+        {value:'0349'},
+
+
+      ]
     return (
       <TouchableWithoutFeedback
         onPress={() => {
@@ -58,10 +129,27 @@ class CartScreen extends React.Component {
                     style={styles.input}
                     placeholder="Shipping Address"
                     placeholderTextColor="#B1B1B1"
+                    onChangeText={TextInputAdress => this.setState({ TextInputAdress })}
+                    maxLength={100}
                   />
+                  
                   <View style={{ marginLeft: 10, width: 'auto' }}>
                     <Dropdown label="Payment Method" data={data} />
                   </View>
+                  
+                  <View style={{ marginLeft: 10}}>
+                    <Dropdown label="Select your code" data={phoneData} /> 
+                    </View>
+                    <TextInput 
+                    style={styles.input}
+                    placeholder="Enter valid Phone number"
+                    keyboardType="numeric"
+                    maxLength={7}
+                    minValue={7}
+                    onChangeText={TextInputNumber => this.setState({ TextInputNumber})}
+                    />
+                    
+
                 </View>
               </View>
             </View>
@@ -81,8 +169,9 @@ class CartScreen extends React.Component {
               </View>
             </TouchableHighlight>
             <TouchableHighlight
-            onPress={()=>Alert.alert('Your order has been placed Please wait...')}
-            >
+            onPress={
+              () => {this.CheckTextInput();  }}
+             >
               <View style={styles.checkoutView}>
                 <Text style={styles.Cartbutton}>
                   Confirm Order
