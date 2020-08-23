@@ -211,19 +211,7 @@ class SignupScreen extends React.Component {
                 Signup With G-Mail
               </MaterialCommunityIcons.Button>
             </View>
-            <View style={styles.footerView}>
-              <Text style={styles.footerText}>
-                Already got an account?{" "}
-                <Text
-                  onPress={() => {
-                    this.props.navigation.navigate("Signin");
-                  }}
-                  style={styles.footerLink}
-                >
-                  Signin
-                </Text>
-              </Text>
-            </View>
+            
           </KeyboardAvoidingView>
         </SafeAreaView>
       </TouchableWithoutFeedback>

@@ -18,10 +18,8 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { connect } from "react-redux";
 import { Dropdown } from "react-native-material-dropdown";
 import BackButton from "./../../components/BackButton/BackButton";
-import { getAllIngredients } from './../../data/MockDataAPI';
 class CartScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    headerRight: <FoodCart />,
     headerTransparent: "true",
     headerLeft: () => (
       <BackButton
@@ -38,9 +36,19 @@ class CartScreen extends React.Component {
       TextInputNumber: '',
     };
   }
+  
   CheckTextInput = () => {
     if (this.state.TextInputAdress != '') {
       if (this.state.TextInputNumber != '') {
+        if(this.state.CodeInput != '') {
+        Alert.alert('Your Order has been Placed successfully. Thanku you for choosing UE-Cafeteria')
+        console.log('Shipping Address=', this.state.TextInputAdress)
+        console.log('Phone Code:', this.state.CodeInput)
+        console.log('Phone Number:', this.state.TextInputNumber)
+        console.log('Order has been Recieved')
+        } else {
+           alert('Please Select Your Phone Code')
+        }
      } else {
         alert('Please Enter Valid Phone Number');
       }
@@ -48,6 +56,15 @@ class CartScreen extends React.Component {
       alert('Please Enter Valid Adress');
     }
   };
+
+  state = {
+    value: null
+};
+  handleChange = (event) => {
+    this.setState({
+        value: event.target.value
+    });
+}
   render() {
     let data = [
       {
@@ -138,7 +155,9 @@ class CartScreen extends React.Component {
                   </View>
                   
                   <View style={{ marginLeft: 10}}>
-                    <Dropdown label="Select your code" data={phoneData} /> 
+                    <Dropdown label="Select your code" 
+                     data={phoneData} 
+                     onChangeText={CodeInput => this.setState({ CodeInput })}/>
                     </View>
                     <TextInput 
                     style={styles.input}
@@ -148,8 +167,6 @@ class CartScreen extends React.Component {
                     minValue={7}
                     onChangeText={TextInputNumber => this.setState({ TextInputNumber})}
                     />
-                    
-
                 </View>
               </View>
             </View>
@@ -169,8 +186,11 @@ class CartScreen extends React.Component {
               </View>
             </TouchableHighlight>
             <TouchableHighlight
+            onPress={this.props.removeItem}
+            products={this.props.cartItems}
             onPress={
-              () => {this.CheckTextInput();  }}
+              () => {this.CheckTextInput();
+            }}
              >
               <View style={styles.checkoutView}>
                 <Text style={styles.Cartbutton}>

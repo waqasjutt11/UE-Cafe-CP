@@ -42,6 +42,7 @@ class DetailScreen extends React.Component {
       activeSlide: 0,
     };
   }
+  
 
   renderImage = ({ item }) => (
     <TouchableHighlight>
@@ -105,8 +106,10 @@ class DetailScreen extends React.Component {
             <TouchableHighlight
               onPress={() =>
                 navigation.navigate("ProductList", { category, title })
+                
               }
             >
+              
               <Text style={styles.category}>
                 {getCategoryName(item.categoryId).toUpperCase()}
               </Text>
@@ -151,6 +154,17 @@ class DetailScreen extends React.Component {
               Total Bill {item.price * this.props.cartItems.length} PKR
             </Text>
           </View>
+          {
+                console.log(item.title)
+               
+              }
+              {
+                console.log('Quantity=', this.props.cartItems.length)
+              }
+              {
+                console.log('Total Bill=', item.price * this.props.cartItems.length)
+              }
+
 
           <View style={styles.infoContainer}>
             <ViewIngredientsButton
@@ -176,7 +190,9 @@ class DetailScreen extends React.Component {
         </View>
       </ScrollView>
     );
+    
   }
+  
 }
 const mapStateToProps = (state) => {
   return {

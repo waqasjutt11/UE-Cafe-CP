@@ -51,10 +51,7 @@ export default class DrawerContainer extends React.Component {
             }
             
           />
-           <MenuButton
-            title="PROFILE"
-            source={require('../../../assets/icons/profil.png')}
-          />
+           
         </View>
       </View>
     );
