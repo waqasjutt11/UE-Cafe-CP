@@ -20,14 +20,14 @@ export const RecipeCard = StyleSheet.create({
     marginLeft: RECIPE_ITEM_MARGIN,
     marginRight:20,
     marginTop: 20,
-    width: 330,
+    width: 380,
     height: RECIPE_ITEM_HEIGHT + 75,
     borderColor: '#8A173F',
     borderWidth: 0.5,
     borderRadius: 15
   },
   photo: {
-    width: 326,
+    width: 376,
     height: RECIPE_ITEM_HEIGHT + 20,
     borderRadius: 15,
     borderBottomLeftRadius: 0,

@@ -9,7 +9,8 @@ infoContainer: {
   },
     Cartbutton:{
       color:'#fff',
-      fontSize:16
+      fontSize:16,
+      
     },
     Cartview:{
       alignContent: 'center',
@@ -20,8 +21,8 @@ infoContainer: {
       fontSize: 14,
       height: 50,
       width: 270,
-      marginTop: 20,
-      marginLeft: 45,
+      marginTop: 80,
+      marginLeft: 75,
       marginRight: 10,
       borderRadius: 100,
       borderColor: '#2cd18a',
@@ -54,7 +55,7 @@ infoContainer: {
       height: 50,
       borderColor: 'gray',
       borderWidth: 1,
-      width:335
+      width:390
       
     },
     checkoutView:{
@@ -67,7 +68,7 @@ infoContainer: {
       height: 50,
       width: 270,
       marginTop: 20,
-      marginLeft: 45,
+      marginLeft: 75,
       marginRight: 10,
       borderRadius: 100,
       borderColor: '#8A173F',
